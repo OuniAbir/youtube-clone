@@ -9,7 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Service
 @RequiredArgsConstructor
 public class VideoService {
-    private final S3Service fileService;
+    private final FileService fileService;
     private final VideoRepository videoRepository;
 
     public void uploadVideo(MultipartFile file) {
