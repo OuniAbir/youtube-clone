@@ -1,5 +1,6 @@
 package com.learning.youtube.service;
 
+import com.learning.youtube.dto.UploadVideoResponse;
 import com.learning.youtube.dto.VideoDto;
 import com.learning.youtube.model.Video;
 import com.learning.youtube.repository.VideoRepository;
@@ -13,14 +14,15 @@ public class VideoService {
     private final FileService fileService;
     private final VideoRepository videoRepository;
 
-    public void uploadVideo(MultipartFile file) {
+    public UploadVideoResponse uploadVideo(MultipartFile file) {
         //upload file to AWS S3
         String videoUrl = fileService.uploadVideo(file);
 
         //Save Video Date to DB
         var video = new Video();
         video.setUrl(videoUrl);
-        videoRepository.save(video);
+        Video savedVideo = videoRepository.save(video);
+        return new UploadVideoResponse(savedVideo.getId(), savedVideo.getUrl());
 
     }
 

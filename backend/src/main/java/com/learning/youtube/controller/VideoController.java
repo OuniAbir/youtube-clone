@@ -1,6 +1,7 @@
 package com.learning.youtube.controller;
 
 
+import com.learning.youtube.dto.UploadVideoResponse;
 import com.learning.youtube.dto.VideoDto;
 import com.learning.youtube.service.VideoService;
 import lombok.RequiredArgsConstructor;
@@ -16,8 +17,8 @@ public class VideoController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void uploadVideo(@RequestParam("file") MultipartFile file) {
-        videoService.uploadVideo(file);
+    public UploadVideoResponse uploadVideo(@RequestParam("file") MultipartFile file) {
+        return videoService.uploadVideo(file);
     }
 
     @PostMapping("/thumbnail")
