@@ -33,7 +33,7 @@
     "@angular/cli": "~11.2.8",
     "@angular/compiler-cli": "~11.2.9",
     "@types/auth0-js": "^9.14.3",
-    "@types/core-js": "^2.5.4",
+    "@types/core-js": "^2.5.5",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
     "@videogular/ngx-videogular": "^3.0.1",
